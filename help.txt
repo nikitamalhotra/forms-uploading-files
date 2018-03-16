@@ -1,0 +1,12 @@
+> php artisan make:migration create_post_table --create=posts
+  Add following entries in migration:
+          Schema::create('posts', function (Blueprint $table) {
+              $table->increments('id');
+              $table->integer('user_id')->unsigned();
+              $table->string('title');
+              $table->text('content');
+              $table->timestamps();
+          });
+> php artisan migrate
+    Input some data inside the Users Table
+> php artisan make:model Post

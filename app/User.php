@@ -23,4 +23,19 @@ class User extends Authenticatable
 		return $this->hasOne('App\Address');
     }
 
+	public function post(){
+		return $this->hasOne('App\Post');
+	}
+
+	public function posts(){
+    	return $this->hasMany('App\Post');
+	}
+
+	public function roles(){
+		return $this->belongsToMany('App\Role')->withPivot('created_at');
+	}
+
+	public function photos(){
+		return $this->morphMany('App\Photo', 'imageable');
+	}
 }
