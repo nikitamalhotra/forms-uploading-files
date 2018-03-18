@@ -10,4 +10,7 @@
 > php artisan migrate
     Input some data inside the Users Table
 > php artisan make:model Post
+> php artisan make:controller
 > php artisan route:list    > Displays all availabe routes
+> Set Config > database.php > MySQL Strict to false
+

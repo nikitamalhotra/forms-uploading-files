@@ -19,6 +19,6 @@ use App\Role;
 //});
 
 //Route::get('/create', 'PostsController@create' );
-//Route::post('/posts', 'PostsController@store' );
+//Route::post('/postss', 'PostsController@store' );
 
 Route::resource('/posts', 'PostsController');
