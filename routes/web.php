@@ -14,7 +14,11 @@ use App\Role;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
+//Route::get('/create', 'PostsController@create' );
+//Route::post('/posts', 'PostsController@store' );
+
+Route::resource('/posts', 'PostsController');

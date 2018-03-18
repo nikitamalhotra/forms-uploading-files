@@ -10,3 +10,4 @@
 > php artisan migrate
     Input some data inside the Users Table
 > php artisan make:model Post
+> php artisan route:list    > Displays all availabe routes
