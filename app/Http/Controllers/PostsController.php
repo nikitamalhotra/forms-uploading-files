@@ -14,8 +14,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
-        return view('posts.index', compact('posts'));
+        return "Welcome to Laravel Post";
     }
 
     /**
@@ -25,40 +24,41 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+	    return view('posts.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //return $request->all();
+		//return $request->all();
 
-        //return $request->title;   //Allowed - Using tag name as property
+	    //return $request->title;   //Allowed - Using tag name as property
         //return $request->get('title'); //return $request->get('name');
 
-        //Method 1 - Storing to Database
-        Post::create($request->all());
+	    //Method 1 - Storing to Database
+	    Post::create($request->all());
 
-        //Method 2 - Storing to Database
-        //$input = $request->all();
-        //$input['title'] = $request->title;
-        //Post::create($request->all());
+	    //Method 2 - Storing to Database
+	    //$input = $request->all();
+	    //$input['title'] = $request->title;
+	    //Post::create($request->all());
 
-        //Method 3 - Storing to Database
-        //$post = new Post;
-        //$post->title = $request->title;
-        //$post->save();
+	    //Method 3 - Storing to Database
+	    //$post = new Post;
+	    //$post->title = $request->title;
+	    //$post->save();
+		return redirect('/posts');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -69,7 +69,7 @@ class PostsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -80,8 +80,8 @@ class PostsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  int $id
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -92,7 +92,7 @@ class PostsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
