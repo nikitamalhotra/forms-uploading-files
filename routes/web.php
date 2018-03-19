@@ -14,9 +14,9 @@ use App\Role;
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
+Route::get('/', function () {
+    return view('welcome');
+});
 
 //Route::get('/create', 'PostsController@create' );
 //Route::post('/postss', 'PostsController@store' );

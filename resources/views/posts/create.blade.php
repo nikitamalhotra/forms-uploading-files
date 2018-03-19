@@ -2,7 +2,7 @@
 
 
 @section('content')
-    <form method="post" action="‌{{ route('posts.store') }}">
+    <form method="post"  action='{{route('posts.store')}}'>
         {{ csrf_field() }}
         <input type="text" name="title" placeholder="Enter Title"><br>
         <textarea name="content" id="content" cols="30" rows="8"></textarea><br>
