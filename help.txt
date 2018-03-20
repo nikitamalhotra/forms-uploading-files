@@ -14,3 +14,30 @@
 > php artisan route:list    > Displays all availabe routes
 > Set Config > database.php > MySQL Strict to false
 
+
+------------------------------------------------------------------------------------------------------------------------
+                                Section - 19 (Forms - Package and Validation)
+------------------------------------------------------------------------------------------------------------------------
+ 1. Install LaravelCollective
+    Follow steps mentioned at https://laravelcollective.com/docs/master/html#installation
+ 2. Install with Composer using following command:
+    composer update
+
+    or, use PHPStorm internal features to update the package, which appears once you open package.json file.
+ 3. Test form on your view if it works: {!! Form::Open() !!}
+    If it work then everything is okay otherwise there is a problem that you need to check.
+
+    {!! Form::Open() !!}    => It opens form with default parameter values for action and method parameter.
+
+    It can be overridden with : {!! Form::open(['method'=>'post', 'action'=>'PostsController@store']) !!}
+                                It points to 'store' action of 'PostsController' with 'post' method.
+
+    With with this method will be closed as:
+    {!! Form::Close() !!}
+
+ 4. Font Awesome cannot be used on Input Submit Button.
+    There is no option for :after as Font Awesome works for :after
+
+    The alternative is to use <button></button> and the solution is
+        {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-warning btn-sm'] )  }}
+

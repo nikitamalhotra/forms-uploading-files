@@ -25,14 +25,9 @@
                 <td>{{ $post->updated_at }}</td>
                 <td><a href="{{route('posts.edit', $post->id)}}"><strong>Edit</strong></a></td>
                 <td>
-                    <!-- <a href="{{route('posts.destroy', $post->id)}}"><strong>Delete</strong></a>  -->
-                    <!-- Above Method wont work as it is -->
-                        <form method="post" action="{{route('posts.destroy', $post->id)}}">
-                            {{csrf_field()}}
-                            <input type="hidden" name="_method" value="DELETE">
-                            <input type="submit" value="Delete">
-                        </form>
-
+                    {!! Form::open(['method'=>'DELETE', 'action'=>['PostsController@destroy', $post->id]]) !!}
+                        {!! Form::submit('Delete', ['class'=> 'btn btn-danger']) !!}
+                    {!! Form::close() !!}
                 </td>
             </tr>
         @endforeach

@@ -21,4 +21,8 @@ Route::get('/', function () {
 //Route::get('/create', 'PostsController@create' );
 //Route::post('/postss', 'PostsController@store' );
 
-Route::resource('/posts', 'PostsController');
+Route::group(['middleware'=>'web'], function(){
+	Route::resource('/posts', 'PostsController');
+});
+
+

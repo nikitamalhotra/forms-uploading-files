@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreatePostRequest;
 use Illuminate\Http\Request;
 use App\Post;
 
@@ -18,8 +19,21 @@ class PostsController extends Controller
 	    return view('posts.create');
     }
 
-    public function store(Request $request)
+    public function store(CreatePostRequest $request)
     {
+
+    	/*Method 1 : Simple Validation
+    	$this->validate($request, [
+    		'title'     => 'required|min:10|max:50',
+		    'content'   => 'required'
+	    ]);
+    	*/
+
+	    //*Method 2 : Simple Validation - requires function parameter to be CreatePostRequest at the place of Request
+		//Create CreatePostRequest.php file =>  php artisan make:request CreatePostRequest
+	    //                                          It is inside root>app>http>Requests
+
+
 		//return $request->all();
 
 	    //return $request->title;   //Allowed - Using tag name as property
