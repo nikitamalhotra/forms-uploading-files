@@ -23,6 +23,19 @@ Route::get('/', function () {
 
 Route::group(['middleware'=>'web'], function(){
 	Route::resource('/posts', 'PostsController');
+	Route::get('/getvalue', function(){
+		$user = User::find(1);
+		echo "Name:        " . $user->name . "<br>";
+		echo "Email:       " . $user->email . "<br>";
+		echo "Password:    " . $user->password . "<br>";
+	});
+	Route::get('/setname', function(){
+		$user = User::find(1);
+		$user->name = "simran";
+		$user->save();
+	});
+
 });
+
 
 

@@ -38,4 +38,20 @@ class User extends Authenticatable
 	public function photos(){
 		return $this->morphMany('App\Photo', 'imageable');
 	}
+
+	//Accessors : Below three functions are an Example
+	public function getNameAttribute($value){
+		return strtoupper($value);         //return ucfirst($value);
+	}
+	public function getEmailAttribute($value){
+		return strtoupper($value);         //return ucfirst($value);
+	}
+	public function getPasswordAttribute($value){
+		return 'pass-' . $value;
+	}
+
+	//Mutator : Below function is an example of Mutator
+	public function setNameAttribute($value){
+		$this->attributes['name'] = strtoupper($value);
+	}
 }

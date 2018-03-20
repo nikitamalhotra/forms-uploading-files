@@ -10,7 +10,12 @@ class PostsController extends Controller
 {
     public function index()
     {
-        $posts = Post::all();
+        //$posts = Post::all();
+	    //We will list Posts orderby Descending Order
+	    //$posts = Post::orderBy('id', 'desc')->get();
+	    //The above code will be replaced with 'Query Scope' latest(), which is defined in Post Model
+	    $posts = Post::latest();        //latest() replace with   orderBy('id', 'desc')->get();
+
         return view('posts.index', compact('posts'));
     }
 
