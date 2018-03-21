@@ -6,9 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-	protected $fillable = ['title', 'content'];
+	public $directory = "images/";
+	protected $fillable = ['title', 'content', 'path'];
 
 	public function scopeLatest($query){
 		return $query->orderBy('id', 'desc')->get();
 	}
+
+	public function getPathAttribute($value){
+		return $this->directory . $value;
+	}
+
 }

@@ -45,7 +45,7 @@ class PostsController extends Controller
         //return $request->get('title'); //return $request->get('name');
 
 	    //Method 1 - Storing to Database
-	    Post::create($request->all());
+	    //Post::create($request->all());
 
 	    //Method 2 - Storing to Database
 	    //$input = $request->all();
@@ -56,6 +56,16 @@ class PostsController extends Controller
 	    //$post = new Post;
 	    //$post->title = $request->title;
 	    //$post->save();
+
+
+	    //This section is also going to upload file
+		$input = $request->all();
+		if($file = $request->file('file')){
+			$name = $file->getClientOriginalName();
+			$file->move('images', $name);
+			$input['path'] = $name;
+		}
+		Post::create($input);
 		return redirect('/posts');
     }
 
